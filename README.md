@@ -68,3 +68,22 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+
+
+For Directions to search words
+let x = [-1, -1, -1, 0, 0, 1, 1, 1];
+
+let y = [-1, 0, 1, -1, 1, -1, 0, 1];
+
+
+x=-1 y=-1 NORTHWEST
+x=-1 y=0 NORTH
+x=-1 y=1 NORTHEAST
+x=0 y=-1 WEST
+x=1 y=-1 SOUTHWEST
+x=0 y=1 EAST *
+x=1 y=0 SOUTH *
+x=1 y=1 SOUTHEAST *
