@@ -10,7 +10,6 @@ import {
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import "./Board.css";
 
 const Board = () => {
   const { location } = useHistory();
@@ -18,7 +17,6 @@ const Board = () => {
   const [word, setWordValue] = useState(0);
   const [wordPos, setwordPos] = useState([]);
   const boardPos = boardData[3];
-  const [style, setStyle] = useState("");
   const [wordFound, setwordFound] = useState(false);
   const [highlight, sethighlight] = useState(false);
 
@@ -139,14 +137,13 @@ const Board = () => {
                     {d.map((dd, di) => {
                       return (
                         <td
-                          className={style}
                           style={{
                             width: "50px",
                             borderColor: "black",
                             borderStyle: "solid",
                             borderWidth: 1,
                             backgroundColor: wordPos.includes(`${i},${di}`)
-                              ? "red"
+                              ? "yellow"
                               : "white",
                           }}
                         >
