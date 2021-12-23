@@ -61,7 +61,16 @@ export default function Grid({ rows, columns }) {
               maxLength="1"
               style={{ width: "50px" }}
               name={getUniqueKeyFromArrayIndex(i, j)}
-              onChange={onChangeHandler}
+              onChange={(e) => {
+                console.log(e.target.value, e.target.value.match(/[a-zA-Z]/i));
+                if (e.target.value.match(/[a-zA-Z]/i)) {
+                  onChangeHandler(e);
+                } else {
+                  if (e.target.value) {
+                    alert("Only Alphabets Allowed");
+                  }
+                }
+              }}
             />
           </td>
         );

@@ -37,7 +37,13 @@ const Home = (props) => {
                 <FormControl
                   placeholder=""
                   name="rows"
-                  onChange={(e) => setRowValue(e.target.value)}
+                  onChange={(e) => {
+                    if (!isNaN(e.target.value)) {
+                      setRowValue(e.target.value);
+                    } else {
+                      alert("Only numbers Allowed");
+                    }
+                  }}
                   aria-label=""
                   aria-describedby="rowNumbers"
                 />
