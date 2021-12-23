@@ -165,12 +165,12 @@ const Board = () => {
               onChange={(e) => setWordValue(e.target.value.toUpperCase())}
             />
             <Button onClick={searchword}>Submit</Button>
-            <h1>{wordFound ? "Word Found" : "Word Not Found"}</h1>
+            <h5>{wordFound ? "Word Found" : "Word Not Found"}</h5>
           </Col>
         </Row>
-        <Row>
-          <Link to="/">
-            <Button>Reset Grid</Button>
+        <Row style={{ justifyContent: "center" }}>
+          <Link to="/" style={{ width: "max-content" }}>
+            <Button variant="secondary">Reset Grid</Button>
           </Link>
         </Row>
       </Container>
