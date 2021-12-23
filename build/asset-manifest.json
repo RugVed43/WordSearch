@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/WordSearch/static/css/main.56e6221f.css",
-    "main.js": "/WordSearch/static/js/main.9a7fc942.js",
-    "static/js/787.44f48c70.chunk.js": "/WordSearch/static/js/787.44f48c70.chunk.js",
-    "index.html": "/WordSearch/index.html",
-    "main.56e6221f.css.map": "/WordSearch/static/css/main.56e6221f.css.map",
-    "main.9a7fc942.js.map": "/WordSearch/static/js/main.9a7fc942.js.map",
-    "787.44f48c70.chunk.js.map": "/WordSearch/static/js/787.44f48c70.chunk.js.map"
+    "main.css": "/static/css/main.56e6221f.css",
+    "main.js": "/static/js/main.14f058de.js",
+    "static/js/787.44f48c70.chunk.js": "/static/js/787.44f48c70.chunk.js",
+    "index.html": "/index.html",
+    "main.56e6221f.css.map": "/static/css/main.56e6221f.css.map",
+    "main.14f058de.js.map": "/static/js/main.14f058de.js.map",
+    "787.44f48c70.chunk.js.map": "/static/js/787.44f48c70.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.56e6221f.css",
-    "static/js/main.9a7fc942.js"
+    "static/js/main.14f058de.js"
   ]
 }
