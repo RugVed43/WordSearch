@@ -11,8 +11,9 @@ const Home = (props) => {
   const [columnsValue, setColumnsValue] = useState(0);
 
   function handleClick() {
-    setgridData(true);
-    console.log(rowValue, columnsValue);
+    if (!isNaN(rowValue) && !isNaN(columnsValue)) {
+      setgridData(true);
+    }
   }
 
   return (
@@ -48,7 +49,13 @@ const Home = (props) => {
                 <FormControl
                   placeholder=""
                   name="columns"
-                  onChange={(e) => setColumnsValue(e.target.value)}
+                  onChange={(e) => {
+                    if (!isNaN(e.target.value)) {
+                      setColumnsValue(e.target.value);
+                    } else {
+                      alert("Only numbers Allowed");
+                    }
+                  }}
                   aria-label=""
                   aria-describedby="colNumbers"
                 />

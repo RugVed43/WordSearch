@@ -15,6 +15,7 @@ export default function Grid({ rows, columns }) {
   // Table
   const [tableCellsData, setTableCellsData] = useState();
   const [tableArrayData, setTableArrayData] = useState([[]]);
+  const [tableArrayPosition, setTableArrayPosition] = useState([[]]);
   const ref = useRef(null);
 
   const getUniqueKeyFromArrayIndex = (rowNum, columnNum) => {
@@ -22,7 +23,7 @@ export default function Grid({ rows, columns }) {
   };
 
   useEffect(() => {
-    console.log(tableArrayData);
+    // console.log(tableArrayData);
   }, [tableCellsData]);
 
   const onChangeHandler = (e) => {
@@ -34,13 +35,17 @@ export default function Grid({ rows, columns }) {
 
     row = parseInt(row);
     col = parseInt(col);
-    console.log(row, col);
     if (!tableArrayData[row]) {
       tableArrayData[row] = [];
       tableArrayData[row].push([]);
     }
+    if (!tableArrayPosition[row]) {
+      tableArrayPosition[row] = [];
+      tableArrayPosition[row].push([]);
+    }
 
     tableArrayData[row][col] = e.target.value.toUpperCase();
+    tableArrayPosition[row][col] = `${row},${col}`;
   };
 
   const generateTable = () => {
@@ -66,12 +71,14 @@ export default function Grid({ rows, columns }) {
     return table;
   };
   function submitGrid() {
+    // console.log(tableArrayPosition);
     history.push({
       pathname: "/board",
       state: {
         board: tableArrayData,
         row: rows,
         col: columns,
+        boardPos: tableArrayPosition,
       },
     });
   }

@@ -16,6 +16,8 @@ const Board = () => {
   const { location } = useHistory();
   const boardData = Object.values(location.state);
   const [word, setWordValue] = useState(0);
+  const [wordPos, setwordPos] = useState([]);
+  const boardPos = boardData[3];
   const [style, setStyle] = useState("");
   const [wordFound, setwordFound] = useState(false);
   const [highlight, sethighlight] = useState(false);
@@ -68,7 +70,43 @@ const Board = () => {
       // then value of must
       // be equal to length of word
       if (k == len) {
-        console.log(row, col);
+        let tx = x[dir],
+          ty = y[dir],
+          tlen = len - 1;
+        if (tx == 1 && ty == 0) {
+          console.log("Direction South");
+          let tmp = [];
+          for (let i = 0; i < word.length; i++) {
+            tmp.push(`${+row + i},${col}`);
+          }
+          console.log(tmp, word.length, `${row},${+col + 1}`);
+          setwordPos(tmp);
+          // setwordPos(`${row + tlen},${col}`);
+        }
+        if (tx == 0 && ty == 1) {
+          console.log("Direction East");
+          let tmp = [];
+          for (let i = 0; i < word.length; i++) {
+            tmp.push(`${row},${+col + i}`);
+          }
+          // console.log(tmp, word.length, `${row},${+col + 1}`);
+          setwordPos(tmp);
+          // let word = board[row][col];
+          // let word2 = board[row][+col + 1];
+          // let word3 = board[row][+col + 2];
+          console.log(wordPos);
+          // setwordPos(`${row + tlen},${col}`);
+        }
+        if (tx == 1 && ty == 1) {
+          console.log("Direction SouthEast");
+          let tmp = [];
+          for (let i = 0; i < word.length; i++) {
+            tmp.push(`${+row + i},${+col + i}`);
+          }
+          console.log(tmp, word.length, `${row},${+col + 1}`);
+          setwordPos(tmp);
+          // setwordPos(`${row + tlen},${col}`);
+        }
         return true;
       }
     }
@@ -79,7 +117,7 @@ const Board = () => {
     for (let row = 0; row < R; row++) {
       for (let col = 0; col < C; col++) {
         if (search2D(board, row, col, word)) {
-          console.log("pattern found at " + row + ", " + col);
+          console.log("pattern found at " + row + ", " + col, board);
           setwordFound(true);
         }
       }
@@ -107,6 +145,9 @@ const Board = () => {
                             borderColor: "black",
                             borderStyle: "solid",
                             borderWidth: 1,
+                            backgroundColor: wordPos.includes(`${i},${di}`)
+                              ? "red"
+                              : "white",
                           }}
                         >
                           {dd}
